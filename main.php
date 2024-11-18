@@ -30,7 +30,7 @@ if(!isset($_SESSION['userid'])){
         $contact=$_POST['contact'];
         echo'
             <script>
-                alert("'.$e->addemployee($idnum,$ln,$fn,$mn,$address,$bdate,$gender,$contact).'");
+                alert("'.$e->addemployee($idnum,$ln,$fn,$mn,$address,$bdate,$gender,$contact,'hr').'");
             </script>
         
         ';
