@@ -11,11 +11,7 @@ if(!isset($_SESSION['userid'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="res/bootstrap-5.3.3-dist/css/bootstrap.min.css">
-    <script src="res/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="res/jquery-3.7.1.min.js"></script>
-    <link href="res/DataTables/datatables.min.css" rel="stylesheet">
-    <script src="res/DataTables/datatables.min.js"></script>
+    <?php include_once'res/includes.php'?>
     <title>admin main</title>
 </head>
 <body>
@@ -32,17 +28,30 @@ if(!isset($_SESSION['userid'])){
         $bdate=$_POST['birthdate'];
         $gender=$_POST['gender'];
         $contact=$_POST['contact'];
-        echo'
+       /* echo'
             <script>
-                alert("'.$e->updateemployee($idnum,$ln,$fn,$mn,$address,$bdate,$gender,$contact).'");
+                alert("'..'");
             </script>
-        ';
+        ';*/
+        echo'
+			<script>
+				Swal.fire({
+				title: "Success",
+				text: "'.$e->updateemployee($idnum,$ln,$fn,$mn,$address,$bdate,$gender,$contact).'",
+				icon: "success"
+				});
+			</script>
+			';
 
     }else if(isset($_POST['delete'])){
         $idnum=$_POST['userid'];
         echo'
             <script>
-                alert("'.$e->deleteemployee($idnum).'");
+                Swal.fire({
+				title: "Success",
+				text: "'.$e->deleteemployee($idnum).'",
+				icon: "success"
+				});
             </script>
         ';
     }

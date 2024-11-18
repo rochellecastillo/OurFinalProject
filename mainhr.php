@@ -11,8 +11,7 @@ if(!isset($_SESSION['userid'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="res/bootstrap-5.3.3-dist/css/bootstrap.min.css">
-    <script src="res/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <?php include_once'res/includes.php'?>
     <title>HR Main</title>
 </head>
 <body>

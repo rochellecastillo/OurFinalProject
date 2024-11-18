@@ -11,8 +11,7 @@ if(!isset($_SESSION['userid'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="res/bootstrap-5.3.3-dist/css/bootstrap.min.css">
-    <script src="res/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <?php include_once'res/includes.php'?>
     <title>admin main</title>
 </head>
 <body>
@@ -30,10 +29,15 @@ if(!isset($_SESSION['userid'])){
         $contact=$_POST['contact'];
         echo'
             <script>
-                alert("'.$e->addemployee($idnum,$ln,$fn,$mn,$address,$bdate,$gender,$contact,'hr').'");
+                Swal.fire({
+				title: "Success",
+				text: "'.$e->addemployee($idnum,$ln,$fn,$mn,$address,$bdate,$gender,$contact,'hr').'",
+				icon: "success"
+				});
             </script>
         
         ';
+        
     }
     include_once'res/nav.php';
     ?>
