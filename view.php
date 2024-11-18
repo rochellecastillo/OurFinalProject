@@ -13,6 +13,9 @@ if(!isset($_SESSION['userid'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="res/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <script src="res/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="res/jquery-3.7.1.min.js"></script>
+    <link href="res/DataTables/datatables.min.css" rel="stylesheet">
+    <script src="res/DataTables/datatables.min.js"></script>
     <title>admin main</title>
 </head>
 <body>
@@ -51,18 +54,24 @@ if(!isset($_SESSION['userid'])){
         <div class="row mt-3">
             <div class="col-md-12">
                 <div class="table-responsive">
-                    <table class="table">
-                        <tr>
-                            <th>User ID</th>
-                            <th>Last Name</th>
-                            <th>First Name</th>
-                            <th>Middle Name</th>
-                            <th>Address</th>
-                            <th>BirthDate</th>
-                            <th>Gender</th>
-                            <th>Contact</th>
-                            <th>Action</th>
-                        </tr>
+                    <table id="usertable">
+                        <thead>
+
+                            <tr>
+                                <th class="text-nowrap">User ID</th>
+                                <th class="text-nowrap">Last Name</th>
+                                <th class="text-nowrap">First Name</th>
+                                <th class="text-nowrap">Middle Name</th>
+                                <th class="text-nowrap">Address</th>
+                                <th class="text-nowrap">BirthDate</th>
+                                <th class="text-nowrap">Gender</th>
+                                <th class="text-nowrap">Contact</th>
+                                <th class="text-nowrap">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        
                         <?php
                         while($row=$data->fetch_assoc()){
                             echo'
@@ -83,6 +92,7 @@ if(!isset($_SESSION['userid'])){
                             ';
                         }
                         ?>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -174,4 +184,8 @@ if(!isset($_SESSION['userid'])){
         document.getElementById("gender").value=gender;
         document.getElementById("contact").value=contact;
     }
+
+    $(document).ready(function() {
+        $('#usertable').DataTable();
+    });
 </script>
