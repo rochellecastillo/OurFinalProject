@@ -26,6 +26,20 @@
             <li><a class="dropdown-item" href="#">View Employee Info</a></li>
           </ul>
         </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Client Management</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Add New Client</a></li>
+              <li><a class="dropdown-item" href="#">View Client Info</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Assign Manpower</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Assign to Client</a></li>
+              <li><a class="dropdown-item" href="#">View Client Assignment</a></li>
+            </ul>
+          </li>
         <?php
           }
         ?>
