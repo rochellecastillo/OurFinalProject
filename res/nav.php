@@ -14,6 +14,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="main.php">Add New HR</a></li>
             <li><a class="dropdown-item" href="view.php">View HR Info</a></li>
+
           </ul>
         </li>
         <?php
@@ -23,7 +24,7 @@
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Employee Management</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="main.php">Add New Employee</a></li>
-            <li><a class="dropdown-item" href="#">View Employee Info</a></li>
+            <li><a class="dropdown-item" href="view.hr.php">View Employee Info</a></li>
           </ul>
         </li>
         <?php
