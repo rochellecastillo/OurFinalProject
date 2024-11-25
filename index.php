@@ -29,8 +29,12 @@ session_start();
         }else{
             echo'
                 <script>
-                    alert("Invalid UserName or Password");
-                </script>
+                Swal.fire({
+				title: "Oops...",
+				text: "Invalid Username or Password!",
+				icon: "error"
+				});
+            </script>
             ';
         }
     }
@@ -44,7 +48,7 @@ session_start();
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12">
-                            <label for="un" class="fw-bold">User Name</label>
+                            <label for="un" class="fw-bold">Username</label>
                             <input type="text" class="form-control" name = "un">
                         </div>
                     </div>

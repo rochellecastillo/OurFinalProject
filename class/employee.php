@@ -2,8 +2,11 @@
 include_once'database.php';
 class employee extends database{
     public function login($un,$pw){
-        $sql = "select * from user where userid='$un' and password='$pw'";
-        $data=$this->con->query($sql);
+        $sql = "select * from user where userid=? and password=?";
+        $stmt=$this->con->prepare($sql);
+        $stmt->bind_param('ss',$un,$pw);
+        $stmt->execute();
+        $data=$stmt->get_result();
         return $data;
     }
     public function addemployee($idnum,$ln,$fn,$mn,$address,$bdate,$gender,$contact,$role){
