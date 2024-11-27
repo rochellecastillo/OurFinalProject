@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("Asia/Manila");
 include_once'database.php';
 class employee extends database{
     public function login($un,$pw){
@@ -67,7 +68,29 @@ class employee extends database{
         $data=$stmt->get_result();
         $stmt->close();
         return $data;
-
+    }
+    public function displayemployee($name){
+        $p=$name.'%';
+        $sql="select * from hr where concat(lastname,' ',firstname) like ? or concat(firstname,' ',lastname) like ?";
+        $stmt=$this->con->prepare($sql);
+        $stmt->bind_param('ss',$p,$p);
+        $stmt->execute();
+        $data=$stmt->get_result();
+        $stmt->close();
+        return $data;
+    }
+    public function assignemployee($employeeid,$companyid){
+        $date=date("Y-m-d");
+        $sql="insert into assignment values(NULL,?,?,?,'active')";
+        $stmt=$this->con->prepare($sql);
+        $stmt->bind_param('sss',$employeeid,$companyid,$date);
+        if($stmt->execute()){
+            $stmt->close();
+            return'Employee Assigned Successfully!';
+        }else{
+            $stmt->close();
+            return $this->con->error;
+        }
     }
 }
 ?>
