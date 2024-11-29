@@ -92,5 +92,13 @@ class employee extends database{
             return $this->con->error;
         }
     }
+    public function showassignment($companyid){
+        $sql="select * from assignment where companyid=?";
+        $stmt=$this->con->prepare($sql);
+        $stmt->bind_param('s',$companyid);
+        $stmt->execute();
+        $data=$stmt->get_result();
+        return $data;
+    }
 }
 ?>
