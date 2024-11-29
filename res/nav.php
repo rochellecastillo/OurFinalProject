@@ -38,7 +38,7 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Assign Manpower</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="manpower.php">Assign to Client</a></li>
-              <li><a class="dropdown-item" href="#">View Client Assignment</a></li>
+              <li><a class="dropdown-item" href="manpowerassignment.php">View Client Assignment</a></li>
             </ul>
           </li>
         <?php
