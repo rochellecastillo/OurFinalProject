@@ -23,6 +23,15 @@ class client extends database{
         $stmt->close();
         return $data;
     }
+    public function viewclientinfo($companyid){
+        $sql="select * from client where companyid=?";
+        $stmt=$this->con->prepare($sql);
+        $stmt->bind_param('s',$companyid);
+        $stmt->execute();
+        $data=$stmt->get_result();
+        $stmt->close();
+        return $data;
+    }
     public function updateclient($companyid, $companyname, $natureofcompany, $address, $contact, $contactperson){
         $sql = "update client set companyname=?,natureofcompany=?,address=?,contact=?,contactperson=? where companyid=?";
         $stmt=$this->con->prepare($sql);
@@ -50,6 +59,15 @@ class client extends database{
             return $this->con->error;
         }
         
+    }
+    public function countmanpower($companyid){
+        $sql="select count(companyid) as employeecount from assignment where companyid=?";
+        $stmt=$this->con->prepare($sql);
+        $stmt->bind_param('s',$companyid);
+        $stmt->execute();
+        $data=$stmt->get_result();
+        $row=$data->fetch_assoc();
+        return $row['employeecount'];
     }
 }
 ?>
