@@ -49,13 +49,13 @@ session_start();
                     <div class="row mt-3">
                         <div class="col-md-12">
                             <label for="un" class="fw-bold">Username</label>
-                            <input type="text" class="form-control" name = "un">
+                            <input type="text" class="form-control text-center" name = "un">
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12">
                             <label for="pw" class="fw-bold">Password</label>
-                            <input type="password" class="form-control" name = "pw">
+                            <input type="password" class="form-control text-center" name = "pw">
                         </div>
                     </div>
                     <div class="row mt-3 mb-4">

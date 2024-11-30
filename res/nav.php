@@ -17,6 +17,12 @@
 
           </ul>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Client</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="viewclientadmin.php">View Client Info</a></li>
+            </ul>
+          </li>
         <?php
           }else if($_SESSION['role']=='hr'){
           ?>
@@ -45,6 +51,9 @@
           }
         ?>
 
+        <li class="nav-item">
+          <a class="nav-link" href="changepass.php">Change Password</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Logout</a>
         </li>

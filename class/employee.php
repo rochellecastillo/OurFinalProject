@@ -93,12 +93,47 @@ class employee extends database{
         }
     }
     public function showassignment($companyid){
-        $sql="select * from assignment where companyid=?";
+        $sql="select a.*,h.lastname,h.firstname, h.middlename, h.address, h.gender from assignment a inner join hr h on a.employeeid =h.userid where companyid=?";
         $stmt=$this->con->prepare($sql);
         $stmt->bind_param('s',$companyid);
         $stmt->execute();
         $data=$stmt->get_result();
         return $data;
+    }
+    public function removeassignment($employeeid){
+        $sql="delete from assignment where employeeid=?";
+        $stmt=$this->con->prepare($sql);
+        $stmt->bind_param('s',$employeeid);
+        if($stmt->execute()){
+            $stmt->close();
+            return 'Manpower Assignment Deleted!';
+        }else{
+            $stmt->close();
+            return $this->con->error;
+        }
+    }
+    public function changepassword($un,$pw,$pw2,$pw3){
+        $sql="select * from user where userid=? and password=?";
+        $stmt=$this->con->prepare($sql);
+        $stmt->bind_param('ss',$un,$pw);
+        $stmt->execute();
+        $data=$stmt->get_result();
+        if($data->num_rows>0){
+            if($pw2==$pw3){
+                $sql="update user set password=? where userid=?";
+                $stmt=$this->con->prepare($sql);
+                $stmt->bind_param('ss',$pw,$un);
+                $stmt->execute();
+                $stmt->close();
+                return'Password Successfully Changed!';
+            }else{
+                return'New Password did not Match';
+            }
+        }else{
+            return 'Password Incorrect';
+        }
+        
+
     }
 }
 ?>

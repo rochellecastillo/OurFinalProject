@@ -45,26 +45,49 @@ if(!isset($_SESSION['userid'])){
             </div>
         </form>
         <?php
-            if(isset($_POST['view'])){
+            if(isset($_POST['remove'])){
+                $employeeid=$_POST['remove'];
+                echo'
+                    <script>
+                         Swal.fire({
+                        title: "Success",
+                        text: "'.$e->removeassignment($employeeid).'",
+                        icon: "success"
+                        });
+                    </script>
+                ';
+            }else if(isset($_POST['view'])){
                 $companyid=$_POST['company'];
                 $data=$e->showassignment($companyid);
+                $employeecount=$data->num_rows;
                 echo'
-                    <table>
+                    <div class="mt-5 text-secondary"> <h3>Employee Count: ('.$employeecount.')</h3></div>
+                    <table class="table mt-3">
                         <thead>
                             <tr>
                                 <th>Employee ID</th>
-                                <th>Dae Assigned</th>
+                                <th>Name</th>
+                                <th>Adress</th>
+                                <th>Gender</th>
+                                <th>Date Assigned</th>
                                 <th>Status</th>
+                                <th>-</th>
                             </tr>
                         </thead>
                         <tbody>';
                            while($row=$data->fetch_assoc()){
                             echo"
-                                <tr>
-                                    <td>{$row['employeeid']}</td>
-                                    <td>{$row['dateofassignment']}</td>
-                                    <td>{$row['status']}</td>
-                                </tr>
+                                <form method='POST'>
+                                    <tr>
+                                        <td>{$row['employeeid']}</td>
+                                        <td>{$row['lastname']}, {$row['firstname']} {$row['middlename']}</td>
+                                        <td>{$row['address']}</td>
+                                        <td>{$row['gender']}</td>
+                                        <td>{$row['dateofassignment']}</td>
+                                        <td>{$row['status']}</td>
+                                        <td><button class='btn btn-secondary' name='remove' value='{$row['employeeid']}'>&#x1F5D1;</button></td>
+                                    </tr>
+                                </form>
                             ";
                            }
                     echo' </tbody>
