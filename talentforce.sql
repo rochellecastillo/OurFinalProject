@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 27, 2024 at 08:53 AM
+-- Generation Time: Nov 30, 2024 at 06:25 AM
 -- Server version: 8.0.34
 -- PHP Version: 8.2.11
 
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `assignment` (
   `id` int NOT NULL,
-  `employeeid` varchar(30) NOT NULL,
-  `companyid` varchar(30) NOT NULL,
+  `employeeid` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `companyid` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `dateofassignment` date NOT NULL,
-  `status` varchar(10) NOT NULL
+  `status` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -40,7 +40,8 @@ CREATE TABLE `assignment` (
 --
 
 INSERT INTO `assignment` (`id`, `employeeid`, `companyid`, `dateofassignment`, `status`) VALUES
-(1, 'emp1', '1001', '2024-11-27', 'active');
+(2, 'e1001', '1001', '2024-11-30', 'active'),
+(3, 'emp1', '1001', '2024-11-30', 'active');
 
 -- --------------------------------------------------------
 
@@ -50,13 +51,13 @@ INSERT INTO `assignment` (`id`, `employeeid`, `companyid`, `dateofassignment`, `
 
 CREATE TABLE `client` (
   `id` int NOT NULL,
-  `companyid` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `companyname` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `natureofcompany` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
-  `address` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `contact` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `contactperson` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `companyid` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `companyname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `natureofcompany` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contactperson` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `client`
@@ -153,7 +154,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `assignment`
 --
 ALTER TABLE `assignment`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `client`
