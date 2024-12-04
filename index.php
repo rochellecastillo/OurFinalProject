@@ -8,6 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include_once'res/includes.php'?>
     <title>Talent Force</title>
+    <link rel="stylesheet" href="res/style.css"/>
 </head>
 <body>
     <?php
