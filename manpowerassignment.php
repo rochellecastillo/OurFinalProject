@@ -71,7 +71,7 @@ if(!isset($_SESSION['userid'])){
                                 <th>Gender</th>
                                 <th>Date Assigned</th>
                                 <th>Status</th>
-                                <th>-</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>';
@@ -85,7 +85,7 @@ if(!isset($_SESSION['userid'])){
                                         <td>{$row['gender']}</td>
                                         <td>{$row['dateofassignment']}</td>
                                         <td>{$row['status']}</td>
-                                        <td><button class='btn btn-secondary' name='remove' value='{$row['employeeid']}'>&#x1F5D1;</button></td>
+                                        <td><button class='btn btn-secondary' name='remove' value='{$row['employeeid']}'>remove</button></td>
                                     </tr>
                                 </form>
                             ";
