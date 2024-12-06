@@ -52,7 +52,7 @@ if(!isset($_SESSION['userid'])){
                                     <td>{$row['contact']}</td>
                                     <td>{$row['contactperson']}</td>
                                     <td>{$c->countmanpower($row['companyid'])}</td>
-                                    <td><button class='btn btn-primary' onclick='viewmanpower(&quot;{$row['companyid']}&quot;)'>&#x1F441;</button></td>
+                                    <td><button class='btn btn-primary' onclick='viewmanpower(&quot;{$row['companyid']}&quot;)'>view</button></td>
                                 </tr>
                             ";
                         }
