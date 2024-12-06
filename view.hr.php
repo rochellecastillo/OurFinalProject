@@ -12,7 +12,7 @@ if(!isset($_SESSION['userid'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include_once'res/includes.php'?>
-    <title>admin main</title>
+    <title>Admin Main</title>
 </head>
 <body>
     <?php
