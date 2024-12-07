@@ -122,7 +122,7 @@ class employee extends database{
             if($pw2==$pw3){
                 $sql="update user set password=? where userid=?";
                 $stmt=$this->con->prepare($sql);
-                $stmt->bind_param('ss',$pw,$un);
+                $stmt->bind_param('ss',$pw2,$un);
                 $stmt->execute();
                 $stmt->close();
                 return'Password Successfully Changed!';
