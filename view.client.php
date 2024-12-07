@@ -58,10 +58,10 @@ if(!isset($_SESSION['userid'])){
                 <tr>
                     <th>Company Id</th>
                     <th>Name</th>
-                    <th>Address</th>
                     <th>Nature</th>
+                    <th>Address</th>
                     <th>Contact</th>
-                    <th>ContactPerson</th>
+                    <th>Contact Person</th>
                     <th>-</th>
                 </tr>
             </thead>
